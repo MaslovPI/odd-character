@@ -1,24 +1,21 @@
-from classes.colors import Colors
+from classes.color import Color
 from functions.equipment import generate_equipment
 from functions.roll import roll, rollMultipleAccumulate
 
 
 def main():
-    colors = Colors()
     strength = rollMultipleAccumulate(3, 6)
     dexterity = rollMultipleAccumulate(3, 6)
     willpower = rollMultipleAccumulate(3, 6)
     high = max(strength, dexterity, willpower)
 
     hit_protection = roll(6)
+    print(f"Strength: {Color.RED.apply(strength) if strength == high else strength}")
     print(
-        f"Strength: {colors.colorize(strength, 'red') if strength == high else strength}"
+        f"Dexterity: {Color.RED.apply(dexterity) if dexterity == high else dexterity}"
     )
     print(
-        f"Dexterity: {colors.colorize(dexterity, 'red') if dexterity == high else dexterity}"
-    )
-    print(
-        f"Willpower: {colors.colorize(willpower, 'red') if willpower == high else willpower}"
+        f"Willpower: {Color.RED.apply(willpower) if willpower == high else willpower}"
     )
     print(f"Highest Ability Score: {high}")
     print(f"Hit Protection: {hit_protection}")
