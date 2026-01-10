@@ -10,20 +10,22 @@ def main():
     high = max(strength, dexterity, willpower)
 
     hit_protection = roll(6)
-    print(f"Strength: {Color.RED.apply(strength) if strength == high else strength}")
     print(
-        f"Dexterity: {Color.RED.apply(dexterity) if dexterity == high else dexterity}"
+        f"{Color.CYAN.apply('Strength:')} {Color.RED.apply(strength) if strength == high else Color.CYAN.apply(strength)}"
     )
     print(
-        f"Willpower: {Color.RED.apply(willpower) if willpower == high else willpower}"
+        f"{Color.CYAN.apply('Dexterity:')} {Color.RED.apply(dexterity) if dexterity == high else Color.CYAN.apply(dexterity)}"
     )
-    print(f"Highest Ability Score: {high}")
-    print(f"Hit Protection: {hit_protection}")
+    print(
+        f"{Color.CYAN.apply('Willpower:')} {Color.RED.apply(willpower) if willpower == high else Color.CYAN.apply(willpower)}"
+    )
+    print("")
+    print(Color.BLUE.apply(f"Hit Protection: {hit_protection}"))
 
     starter = generate_equipment(hit_protection, high)
     if starter:
-        print(f"Starting package: {starter.content}")
-        print(f"Has arcana: {starter.arcana}")
+        print(Color.YELLOW.apply(f"Starting package: {starter.content}"))
+        print(Color.MAGENTA.apply(f"Has arcana: {starter.arcana}"))
 
 
 if __name__ == "__main__":
