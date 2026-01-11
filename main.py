@@ -1,4 +1,5 @@
 from classes.format import Format
+from functions.arcana import get_random_arcana
 from functions.equipment import generate_equipment
 from functions.roll import roll, rollMultipleAccumulate
 from functions.styling import apply_style
@@ -30,9 +31,11 @@ def main():
         print(
             f"{apply_style('Starter package:', Format.YELLOW, Format.BOLD, Format.UNDERLINE)} {Format.YELLOW.apply(starter.content)}"
         )
-        print(
-            f"{apply_style('Has arcana:', Format.MAGENTA, Format.BOLD, Format.UNDERLINE)} {Format.MAGENTA.apply(starter.arcana)}"
-        )
+        if starter.arcana:
+            spell_name, spell_description = get_random_arcana()
+            print(
+                f"{apply_style(f'{spell_name}:', Format.MAGENTA, Format.BOLD, Format.UNDERLINE)} {Format.MAGENTA.apply(spell_description)}"
+            )
 
 
 if __name__ == "__main__":

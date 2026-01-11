@@ -16,4 +16,4 @@ def generate_equipment(hp, high):
 
 
 def get_path_from_hp(hp):
-    return "tables/equipment/1.csv"
+    return "data/equipment/1.csv"
