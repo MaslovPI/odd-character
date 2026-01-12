@@ -15,7 +15,13 @@
     "name": "Field Weapon",
     "cost": "10s",
     "description": "d8 Damage, Bulky.",
-    "examples": ["Musket", "Brace of Pistols", "Sword and Dagger", "Halberd"]
+    "examples": [
+      "Musket",
+      "Brace of Pistols",
+      "Sword and Dagger",
+      "Halberd",
+      "Rifle"
+    ]
   },
   {
     "name": "Noble Weapon",
