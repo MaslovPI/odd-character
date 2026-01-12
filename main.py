@@ -12,23 +12,33 @@ def main():
     high = max(strength, dexterity, willpower)
     hit_protection = roll(6)
 
-    strength_headline = format_headline("Strength:", Format.CYAN)
-    strength_value = (
-        Format.RED.apply(strength) if strength == high else Format.CYAN.apply(strength)
+    print_stats(
+        strength,
+        dexterity,
+        willpower,
+        high,
+        hit_protection,
     )
-    print(f"{strength_headline} {strength_value}")
-    print(
-        f"{format_headline('Dexterity:', Format.CYAN)} {Format.RED.apply(dexterity) if dexterity == high else Format.CYAN.apply(dexterity)}"
-    )
-    print(
-        f"{format_headline('Willpower:', Format.CYAN)} {Format.RED.apply(willpower) if willpower == high else Format.CYAN.apply(willpower)}"
-    )
-    print("")
-    print(fit_to_print("Hit protection", hit_protection, Format.BLUE))
 
     starter = generate_equipment(hit_protection, high)
     if starter:
         print_starter(starter)
+
+
+def print_stats(strength, dexterity, willpower, high, hit_protection):
+    print(f"{format_headline('Strength:', Format.CYAN)} {format_stat(strength, high)}")
+    print(
+        f"{format_headline('Dexterity:', Format.CYAN)} {format_stat(dexterity, high)}"
+    )
+    print(
+        f"{format_headline('Willpower:', Format.CYAN)} {format_stat(willpower, high)}"
+    )
+    print("")
+    print(fit_to_print("Hit protection", hit_protection, Format.BLUE))
+
+
+def format_stat(stat, high):
+    return Format.RED.apply(stat) if stat == high else Format.CYAN.apply(stat)
 
 
 def print_starter(starter):
