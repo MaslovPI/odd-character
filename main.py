@@ -20,6 +20,7 @@ def main():
         hit_protection,
     )
 
+    print("")
     starter = generate_equipment(hit_protection, high)
     if starter:
         print_starter(starter)

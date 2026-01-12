@@ -3,7 +3,7 @@
     "name": "Crude Weapon",
     "cost": "1s",
     "description": "d6 Damage, Bulky.",
-    "examples": ["Bow", "Pitchfork", "barstool"]
+    "examples": ["Bow", "Pitchfork", "Barstool"]
   },
   {
     "name": "Hand Weapon",
@@ -20,8 +20,8 @@
   {
     "name": "Noble Weapon",
     "cost": "30s",
-    "description": "d8 Damage. Finely made sabre, duelling pistol, rapier, etc.",
-    "examples": ["Finely Made Saber", "duelling pistol", "rapier"]
+    "description": "d8 Damage.",
+    "examples": ["Finely Made Saber", "Duelling Pistol", "Rapier"]
   },
   {
     "name": "Heavy Gun",
