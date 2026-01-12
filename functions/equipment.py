@@ -1,10 +1,13 @@
 import json
+import random
+
 from classes.starter import Starter
 
 
 def generate_equipment(hp, high):
     starter_dict = get_starter_dict()
     equipment_dict = get_equipment_dict()
+    arcana_list = get_arcana_list()
 
     item = starter_dict[max(high, 9)]
     description = "\n"
@@ -23,7 +26,8 @@ def generate_equipment(hp, high):
         else:
             description += f"{name}\n"
 
-    return Starter(description, item["arcana"])
+    arcana = get_random_arcana(arcana_list) if item["arcana"] else None
+    return Starter(description, arcana)
 
 
 def get_equipment_by_name(equipment_dict, name):
@@ -41,6 +45,12 @@ def get_equipment_by_example(equipment_dict, example):
     )
 
 
+def get_random_arcana(arcana_list):
+    index = random.randint(0, len(arcana_list) - 1)
+    item = arcana_list[index]
+    return (item["name"], item["description"])
+
+
 def get_starter_dict():
     starters_json_data = get_list_from_json("data/starters.json")
     return {row["max"]: row for row in starters_json_data}
@@ -49,6 +59,10 @@ def get_starter_dict():
 def get_equipment_dict():
     equipment_json_data = get_list_from_json("data/equipment.json")
     return {row["name"]: row for row in equipment_json_data}
+
+
+def get_arcana_list():
+    return get_list_from_json("data/arcana.json")
 
 
 def get_list_from_json(path):

@@ -1,5 +1,4 @@
 from classes.format import Format
-from functions.arcana import get_random_arcana
 from functions.equipment import generate_equipment
 from functions.roll import roll, roll_multiple
 from functions.styling import apply_style
@@ -45,7 +44,7 @@ def format_stat(stat, high):
 def print_starter(starter):
     print(fit_to_print("Starter package", starter.content, Format.YELLOW))
     if starter.arcana:
-        spell_name, spell_description = get_random_arcana()
+        spell_name, spell_description = starter.arcana
         print(fit_to_print(spell_name, spell_description, Format.MAGENTA))
 
 
