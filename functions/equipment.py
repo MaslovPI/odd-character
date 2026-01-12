@@ -1,19 +1,15 @@
-import csv
+import json
 from classes.starter import Starter
+from functools import reduce
 
 
 def generate_equipment(hp, high):
-    path = get_path_from_hp(hp)
-    with open(path, newline="") as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            if high <= int(row["max"]):
-                return Starter(
-                    row["content"],
-                    row["arcana"] == "1",
-                )
-        return None
+    json_data = []
+    with open("data/starters.json") as json_file:
+        json_data = json.load(json_file)
 
-
-def get_path_from_hp(hp):
-    return "data/equipment/1.csv"
+    by_max = {row["max"]: row for row in json_data}
+    item = by_max[max(high, 9)]
+    return Starter(
+        ", ".join(map(lambda cont: cont["name"], item["content"])), item["arcana"]
+    )

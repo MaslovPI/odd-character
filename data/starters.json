@@ -1,0 +1,92 @@
+[
+  {
+    "max": 9,
+    "arcana": 0,
+    "content": [
+      { "name": "Sword", "extra_info": "d6" },
+      { "name": "Pistol", "extra_info": "d6" },
+      { "name": "Modern Armour", "extra_info": null },
+      { "name": "Sense nearby unearthly beings", "extra_info": null }
+    ]
+  },
+  {
+    "max": 10,
+    "arcana": 1,
+    "content": [
+      { "name": "Rifle", "extra_info": "d8 B" },
+      { "name": "Bayonet", "extra_info": "d6" },
+      { "name": "Lighter Boy", "extra_info": "STR 2d6, lantern, club" }
+    ]
+  },
+  {
+    "max": 11,
+    "arcana": 1,
+    "content": [
+      { "name": "Rifle", "extra_info": "d8 B" },
+      { "name": "Modern Armour", "extra_info": null },
+      { "name": "Hound", "extra_info": null }
+    ]
+  },
+  {
+    "max": 12,
+    "arcana": 1,
+    "content": [
+      { "name": "Club", "extra_info": "d6" },
+      { "name": "Throwing Knives", "extra_info": null }
+    ]
+  },
+  {
+    "max": 13,
+    "arcana": 1,
+    "content": [
+      { "name": "Pistol", "extra_info": "d6" },
+      { "name": "Ether", "extra_info": null },
+      { "name": "Poison", "extra_info": null }
+    ]
+  },
+  {
+    "max": 14,
+    "arcana": 1,
+    "content": [
+      { "name": "Cane", "extra_info": "d6" },
+      { "name": "Acid", "extra_info": null },
+      { "name": "Spyglass", "extra_info": null }
+    ]
+  },
+  {
+    "max": 15,
+    "arcana": 0,
+    "content": [
+      { "name": "Brace of Pistols", "extra_info": "d8 B" },
+      { "name": "Canary", "extra_info": null },
+      { "name": "Ether", "extra_info": null }
+    ]
+  },
+  {
+    "max": 16,
+    "arcana": 0,
+    "content": [
+      { "name": "Musket", "extra_info": "d8 B" },
+      { "name": "Pocket-watch", "extra_info": null },
+      { "name": "Bomb", "extra_info": null }
+    ]
+  },
+  {
+    "max": 17,
+    "arcana": 0,
+    "content": [
+      { "name": "Halberd", "extra_info": "d8 B" },
+      { "name": "Fake Pistol", "extra_info": null },
+      { "name": "Artificial Lung", "extra_info": null }
+    ]
+  },
+  {
+    "max": 18,
+    "arcana": 0,
+    "content": [
+      { "name": "Garotte", "extra_info": "d6" },
+      { "name": "Musket", "extra_info": "d8 B" },
+      { "name": "Mute", "extra_info": null }
+    ]
+  }
+]
