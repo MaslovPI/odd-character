@@ -11,23 +11,28 @@ def generate_equipment(hp, high):
 
     item = starter_dict[max(high, 9)]
     description = "\n"
+
     for content in item["content"]:
-        name = content["name"]
-        content_description = content["extra_info"]
-
-        equipment = get_equipment_by_name(equipment_dict, name)
-        if not equipment:
-            equipment = get_equipment_by_example(equipment_dict, name)
-
-        if equipment:
-            description += f"{name} (Cost: {equipment['cost']}, Description: {equipment['description']})\n"
-        elif content_description:
-            description += f"{name} ({content_description})\n"
-        else:
-            description += f"{name}\n"
+        description += f"{get_content_description(content, equipment_dict)}\n"
 
     arcana = get_random_arcana(arcana_list) if item["arcana"] else None
     return Starter(description, arcana)
+
+
+def get_content_description(content, equipment_dict):
+    name = content["name"]
+    content_description = content["extra_info"]
+
+    equipment = get_equipment_by_name(equipment_dict, name)
+    if not equipment:
+        equipment = get_equipment_by_example(equipment_dict, name)
+
+    if equipment:
+        return f"{name} (Cost: {equipment['cost']}, Description: {equipment['description']})"
+    if content_description:
+        return f"{name} ({content_description})"
+
+    return name
 
 
 def get_equipment_by_name(equipment_dict, name):
