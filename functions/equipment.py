@@ -9,7 +9,6 @@ def generate_equipment(hp, high):
     starter_dict = get_starter_dict()
     equipment_dict = get_equipment_dict()
     arcana_list = get_arcana_list()
-    hire_dict = get_hire_dict()
 
     item = starter_dict[max(high, 9)]
     description = "\n"
@@ -44,15 +43,48 @@ def get_content_description(content, equipment_dict):
 
 def get_pet_description(pet):
     pet_dict = get_pet_dict()
-    pet_item = pet_dict[pet]
     description = pet
-    if not pet_item:
+    if pet not in pet_dict:
         return description
+
+    pet_item = pet_dict[pet]
     description += "\n"
     description += f"Cost: {pet_item['cost']}\n"
     description += f"Strength: {roll_dice(pet_item['str'])}\n"
     description += f"Attack: {pet_item['attack']}"
     return description
+
+
+def get_hire_description(hire):
+    hire_dict = get_hire_dict()
+    description = hire
+    if hire not in hire_dict:
+        return description
+
+    hire_item = hire_dict[hire]
+    description += "\n"
+    description += f"Cost (per day): {hire_item['cost_per_day']}\n"
+    description += f"Hit protection: {roll_dice(hire_item['hp'])}\n"
+    available_score = hire_item["ability_scores"]
+    strength = 0
+    if "str" in hire_item:
+        strength = roll_dice(hire_item["str"])
+    else:
+        strength = generate_score(available_score - 2)
+    available_score -= strength
+    dexterity = generate_score(available_score - 1)
+    available_score -= dexterity
+    willpower = available_score if available_score > 0 else 1
+    description += f"Strength: {strength}\n"
+    description += f"Dexterity: {dexterity}\n"
+    description += f"Willpower: {willpower}\n"
+    return description
+
+
+def generate_score(available_score):
+    if available_score < 2:
+        return 1
+    return random.randint(1, available_score)
 
 
 def get_equipment_by_name(equipment_dict, name):
