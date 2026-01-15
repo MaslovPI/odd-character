@@ -21,6 +21,11 @@ def generate_equipment(hp, high):
         pet = item["pet"]
         description += f"{get_pet_description(pet)}\n"
 
+    if "hire" in item:
+        description += "\n"
+        hire = item["hire"]
+        description += f"{get_hire_description(hire, equipment_dict)}\n"
+
     arcana = get_random_arcana(arcana_list) if item["arcana"] else None
     return Starter(description, arcana)
 
@@ -28,15 +33,18 @@ def generate_equipment(hp, high):
 def get_content_description(content, equipment_dict):
     name = content["name"]
     content_description = content["extra_info"]
+    return get_equipment_description(name, equipment_dict, content_description)
 
+
+def get_equipment_description(name, equipment_dict, description=""):
     equipment = get_equipment_by_name(equipment_dict, name)
     if not equipment:
         equipment = get_equipment_by_example(equipment_dict, name)
 
     if equipment:
         return f"{name} (Cost: {equipment['cost']}, Description: {equipment['description']})"
-    if content_description:
-        return f"{name} ({content_description})"
+    if description:
+        return f"{name} ({description})"
 
     return name
 
@@ -55,7 +63,7 @@ def get_pet_description(pet):
     return description
 
 
-def get_hire_description(hire):
+def get_hire_description(hire, equipment_dict):
     hire_dict = get_hire_dict()
     description = hire
     if hire not in hire_dict:
@@ -78,6 +86,9 @@ def get_hire_description(hire):
     description += f"Strength: {strength}\n"
     description += f"Dexterity: {dexterity}\n"
     description += f"Willpower: {willpower}\n"
+
+    for item in hire_item["equipment"]:
+        description += f"{get_equipment_description(item, equipment_dict)}"
     return description
 
 
