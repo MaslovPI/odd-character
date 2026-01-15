@@ -14,18 +14,18 @@
     "arcana": 1,
     "content": [
       { "name": "Rifle", "extra_info": "d8 B" },
-      { "name": "Bayonet", "extra_info": "d6" },
-      { "name": "Lighter Boy", "extra_info": "STR 2d6, lantern, club" }
-    ]
+      { "name": "Bayonet", "extra_info": "d6" }
+    ],
+    "hire": "Lighter Boy"
   },
   {
     "max": 11,
     "arcana": 1,
     "content": [
       { "name": "Rifle", "extra_info": "d8 B" },
-      { "name": "Modern Armour", "extra_info": null },
-      { "name": "Hound", "extra_info": null }
-    ]
+      { "name": "Modern Armour", "extra_info": null }
+    ],
+    "pet": "Hound"
   },
   {
     "max": 12,

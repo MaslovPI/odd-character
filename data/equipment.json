@@ -49,5 +49,17 @@
     "name": "Shield",
     "cost": "10s",
     "description": "+1 Armour, Bulky."
+  },
+  {
+    "name": "Mule",
+    "cost": "5s"
+  },
+  {
+    "name": "Llama",
+    "cost": "5s"
+  },
+  {
+    "name": "Horse",
+    "cost": "1g"
   }
 ]
