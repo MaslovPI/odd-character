@@ -74,21 +74,29 @@ def get_hire_description(hire, equipment_dict):
     description += f"Cost (per day): {hire_item['cost_per_day']}\n"
     description += f"Hit protection: {roll_dice(hire_item['hp'])}\n"
     available_score = hire_item["ability_scores"]
-    strength = 0
-    if "str" in hire_item:
-        strength = roll_dice(hire_item["str"])
-    else:
-        strength = generate_score(available_score - 2)
+    pregen_strength = hire_item.get("str")
+
+    description += generate_hire_ability_scores(available_score, pregen_strength)
+
+    for item in hire_item["equipment"]:
+        description += f"{get_equipment_description(item, equipment_dict)}\n"
+    return description
+
+
+def generate_hire_ability_scores(available_score, pregen_strength=None):
+    strength = (
+        roll_dice(pregen_strength)
+        if pregen_strength
+        else generate_score(available_score - 2)
+    )
+
     available_score -= strength
     dexterity = generate_score(available_score - 1)
     available_score -= dexterity
     willpower = available_score if available_score > 0 else 1
-    description += f"Strength: {strength}\n"
+    description = f"Strength: {strength}\n"
     description += f"Dexterity: {dexterity}\n"
     description += f"Willpower: {willpower}\n"
-
-    for item in hire_item["equipment"]:
-        description += f"{get_equipment_description(item, equipment_dict)}"
     return description
 
 
