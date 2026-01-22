@@ -7,14 +7,16 @@ class HireProvider:
         self.hire_dict = hire_dict
         self.equipment_provider = equipment_provider
 
-    def get_hire_description(self, hire):
-        description = hire
-        if hire not in self.hire_dict:
-            return description
+    def get_random_hire(self):
+        key = random.choice(list(self.hire_dict.keys()))
+        return key, self.get_hire_description(key)
 
-        hire_item = self.hire_dict[hire]
-        description += "\n"
-        description += f"Cost (per day): {hire_item['cost_per_day']}\n"
+    def get_hire_description(self, hire):
+        hire_item = self.hire_dict.get(hire)
+        if not hire:
+            return None
+
+        description = f"Cost (per day): {hire_item['cost_per_day']}\n"
         description += f"Hit protection: {roll_dice(hire_item['hp'])}\n"
         available_score = hire_item["ability_scores"]
         pregen_strength = hire_item.get("str")

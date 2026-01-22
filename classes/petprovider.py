@@ -1,4 +1,5 @@
 from functions.roll import roll_dice
+import random
 
 
 class PetProvider:
@@ -6,13 +7,14 @@ class PetProvider:
         self.pet_dict = pet_dict
 
     def get_pet_description(self, pet):
-        description = pet
-        if pet not in self.pet_dict:
-            return description
-
-        pet_item = self.pet_dict[pet]
-        description += "\n"
-        description += f"Cost: {pet_item['cost']}\n"
+        pet_item = self.pet_dict.get(pet)
+        if not (pet):
+            return None
+        description = f"Cost: {pet_item['cost']}\n"
         description += f"Strength: {roll_dice(pet_item['str'])}\n"
         description += f"Attack: {pet_item['attack']}"
         return description
+
+    def get_random_pet(self):
+        key = random.choice(list(self.pet_dict.keys()))
+        return key, self.get_pet_description(key)

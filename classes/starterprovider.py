@@ -26,12 +26,18 @@ class StarterProvider:
         if "pet" in item:
             description += "\n"
             pet = item["pet"]
-            description += f"{self.pet_provider.get_pet_description(pet)}\n"
+            pet_description = self.pet_provider.get_pet_description(pet)
+            description += (
+                f"{pet}\n{pet_description}\n" if pet_description else f"{pet}\n"
+            )
 
         if "hire" in item:
             description += "\n"
             hire = item["hire"]
-            description += f"{self.hire_provider.get_hire_description(hire)}\n"
+            hire_description = self.hire_provider.get_hire_description(hire)
+            description += (
+                f"{hire}\n{hire_description}\n" if hire_description else f"{hire}\n"
+            )
 
         arcana = self.arcana_provider.get_random_arcana() if item["arcana"] else None
         return Starter(description, arcana)
