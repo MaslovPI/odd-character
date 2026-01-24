@@ -17,7 +17,7 @@ class StarterProvider:
         self.hire_provider = hire_provider
 
     def generate_starter(self, hp, high):
-        item = self.starter_dict[max(high, 9)]
+        item = self.starter_dict[hp][max(high, 9)]
         description = "\n"
 
         for content in item["content"]:

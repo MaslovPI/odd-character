@@ -3,7 +3,10 @@ import json
 
 def get_starter_dict():
     starters_json_data = get_list_from_json("data/starters.json")
-    return {row["max"]: row for row in starters_json_data}
+    return {
+        row["hp"]: {starter["max"]: starter for starter in row["starters"]}
+        for row in starters_json_data
+    }
 
 
 def get_equipment_dict():

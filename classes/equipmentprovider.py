@@ -8,7 +8,11 @@ class EquipmentProvider:
             equipment = self.get_equipment_by_example(name)
 
         if equipment:
-            return f"{name} (Cost: {equipment['cost']}, Description: {equipment['description']})"
+            cost = equipment.get("cost")
+            eq_description = equipment.get("description")
+            return f"{name} (Cost: {cost if cost else 0}" + (
+                f" Description: {eq_description})" if eq_description else ")"
+            )
         if description:
             return f"{name} ({description})"
 
