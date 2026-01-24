@@ -13,7 +13,7 @@ class HireProvider:
 
     def get_hire_description(self, hire):
         hire_item = self.hire_dict.get(hire)
-        if not hire:
+        if not hire_item:
             return None
 
         description = f"Cost (per day): {hire_item['cost_per_day']}\n"

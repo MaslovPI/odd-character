@@ -8,7 +8,7 @@ class PetProvider:
 
     def get_pet_description(self, pet):
         pet_item = self.pet_dict.get(pet)
-        if not (pet):
+        if not pet_item:
             return None
         description = f"Cost: {pet_item['cost']}\n"
         description += f"Strength: {roll_dice(pet_item['str'])}\n"
