@@ -4,7 +4,7 @@ from classes.equipmentprovider import EquipmentProvider
 from classes.hireprovider import HireProvider
 
 
-class TestConversion(unittest.TestCase):
+class TestHireProvider(unittest.TestCase):
     def test_should_return_none_when_pet_not_in_dict(self):
         hire_dict = {"Something": []}
         equipment_dict = {"Something": []}
