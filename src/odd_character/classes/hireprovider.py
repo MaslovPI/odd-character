@@ -21,9 +21,11 @@ class HireProvider:
         available_score = hire_item["ability_scores"]
         pregen_strength = hire_item.get("str")
 
-        description += self.generate_hire_ability_scores(
-            available_score, pregen_strength
+        strength, dexterity, willpower = self.generate_hire_ability_scores(
+            available_score, roll_dice(pregen_strength) if pregen_strength else None
         )
+
+        description += self.prepare_scores_description(strength, dexterity, willpower)
 
         for item in hire_item["equipment"]:
             description += (
@@ -31,9 +33,15 @@ class HireProvider:
             )
         return description
 
+    def prepare_scores_description(self, strength, dexterity, willpower):
+        description = f"Strength: {strength}\n"
+        description += f"Dexterity: {dexterity}\n"
+        description += f"Willpower: {willpower}\n"
+        return description
+
     def generate_hire_ability_scores(self, available_score, pregen_strength=None):
         strength = (
-            roll_dice(pregen_strength)
+            pregen_strength
             if pregen_strength
             else self.generate_score(available_score - 2)
         )
@@ -42,10 +50,8 @@ class HireProvider:
         dexterity = self.generate_score(available_score - 1)
         available_score -= dexterity
         willpower = available_score if available_score > 0 else 1
-        description = f"Strength: {strength}\n"
-        description += f"Dexterity: {dexterity}\n"
-        description += f"Willpower: {willpower}\n"
-        return description
+
+        return strength, dexterity, willpower
 
     def generate_score(self, available_score):
         if available_score < 2:
