@@ -18,6 +18,13 @@ Install using pip:
 pip install -e .
 ```
 
+pipx:
+
+```bash
+pipx ensurepath
+pipx install -e .
+```
+
 Or uv:
 
 ```bash
