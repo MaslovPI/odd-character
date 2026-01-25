@@ -1,4 +1,4 @@
-from functions.roll import roll_dice
+from odd_character.functions.roll import roll_dice
 import random
 
 

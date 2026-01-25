@@ -1,7 +1,7 @@
 import unittest
 
-from classes.equipmentprovider import EquipmentProvider
-from classes.hireprovider import HireProvider
+from odd_character.classes.equipmentprovider import EquipmentProvider
+from odd_character.classes.hireprovider import HireProvider
 
 
 class TestHireProvider(unittest.TestCase):

@@ -1,4 +1,4 @@
-from classes.starter import Starter
+from odd_character.classes.starter import Starter
 
 
 class StarterProvider:

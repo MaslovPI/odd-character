@@ -15,7 +15,7 @@ This is a start.
 To generate a character run:
 
 ```bash
-python3 main.py
+python3 src/odd_character/main.py
 ```
 
 ## Usage
@@ -30,5 +30,5 @@ Available generators:
 ## Example
 
 ```bash
-python3 main.py arcana
+python3 src/odd_character/main.py arcana
 ```

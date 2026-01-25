@@ -1,5 +1,5 @@
 import random
-from functions.roll import roll_dice
+from odd_character.functions.roll import roll_dice
 
 
 class HireProvider:

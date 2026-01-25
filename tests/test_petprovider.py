@@ -1,6 +1,6 @@
 import unittest
 
-from classes.petprovider import PetProvider
+from odd_character.classes.petprovider import PetProvider
 
 
 class TestPetProvider(unittest.TestCase):

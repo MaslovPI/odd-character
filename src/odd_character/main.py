@@ -1,21 +1,21 @@
 import argparse
 
-from classes.arcanaprovider import ArcanaProvider
-from classes.equipmentprovider import EquipmentProvider
-from classes.format import Format
-from classes.hireprovider import HireProvider
-from classes.outputtype import OutputType
-from classes.petprovider import PetProvider
-from classes.starterprovider import StarterProvider
-from functions.jsonhelper import (
+from odd_character.classes.arcanaprovider import ArcanaProvider
+from odd_character.classes.equipmentprovider import EquipmentProvider
+from odd_character.classes.format import Format
+from odd_character.classes.hireprovider import HireProvider
+from odd_character.classes.outputtype import OutputType
+from odd_character.classes.petprovider import PetProvider
+from odd_character.classes.starterprovider import StarterProvider
+from odd_character.functions.jsonhelper import (
     get_arcana_list,
     get_equipment_dict,
     get_hire_dict,
     get_pet_dict,
     get_starter_dict,
 )
-from functions.roll import roll, roll_multiple
-from functions.styling import apply_style
+from odd_character.functions.roll import roll, roll_multiple
+from odd_character.functions.styling import apply_style
 
 
 def main():

@@ -1,4 +1,4 @@
-from classes.format import Format
+from odd_character.classes.format import Format
 
 
 def apply_style(text, *args):
