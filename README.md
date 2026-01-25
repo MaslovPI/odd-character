@@ -12,13 +12,31 @@ This is a start.
 
 ## Quick start
 
+Install using pip:
+
+```bash
+pip install -e .
+```
+
+Or uv:
+
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+```
+
 To generate a character run:
 
 ```bash
-python3 src/odd_character/main.py
+odd-character
 ```
 
 ## Usage
+
+```bash
+odd-character [command]
+```
 
 Available generators:
 
@@ -30,5 +48,5 @@ Available generators:
 ## Example
 
 ```bash
-python3 src/odd_character/main.py arcana
+odd-character arcana
 ```
