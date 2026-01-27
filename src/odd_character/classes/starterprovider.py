@@ -6,11 +6,9 @@ class StarterProvider:
         self,
         starter_dict,
         equipment_provider,
-        arcana_provider,
     ):
         self.starter_dict = starter_dict
         self.equipment_provider = equipment_provider
-        self.arcana_provider = arcana_provider
 
     def generate_starter(self, hp, high):
         item = self.starter_dict[hp][max(high, 9)]
@@ -19,7 +17,7 @@ class StarterProvider:
         for content in item["content"]:
             description += f"{self.get_content_description(content)}\n"
 
-        arcana = self.arcana_provider.get_random_arcana() if item["arcana"] else None
+        arcana = item.get("arcana")
         return Starter(description, arcana, item.get("pet"), item.get("hire"))
 
     def get_content_description(self, content):

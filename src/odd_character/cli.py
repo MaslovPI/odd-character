@@ -68,14 +68,11 @@ def print_character():
 def generate_starter(hit_protection, high):
     starter_dict = get_starter_dict()
     equipment_dict = get_equipment_dict()
-    arcana_list = get_arcana_list()
 
-    arcana_provider = ArcanaProvider(arcana_list)
     equipment_provider = EquipmentProvider(equipment_dict)
     starter_provider = StarterProvider(
         starter_dict,
         equipment_provider,
-        arcana_provider,
     )
 
     return starter_provider.generate_starter(hit_protection, high)
@@ -153,8 +150,7 @@ def print_starter(starter):
         print()
 
     if starter.arcana:
-        spell_name, spell_description = starter.arcana
-        print_arcana(spell_name, spell_description)
+        print_random_arcana()
         print()
 
 
