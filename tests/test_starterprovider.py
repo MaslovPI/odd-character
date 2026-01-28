@@ -4,7 +4,7 @@ from odd_character.classes.starterprovider import StarterProvider
 
 
 class TestStarterProvider(unittest.TestCase):
-    def test_should_geerate_starter(self):
+    def test_should_geerate_starter_no_extra(self):
         starter_dict_1 = {
             9: {
                 "arcana": 0,
@@ -34,7 +34,13 @@ class TestStarterProvider(unittest.TestCase):
         )
 
         starter = starter_provider.generate_starter(1, 1)
-        print(starter)
+        self.assertEqual(0, starter.arcana)
+        self.assertIsNone(starter.hire)
+        self.assertIsNone(starter.pet)
+        self.assertEqual(
+            "\nclub (Cost: 1s Description: d6 Damage, Bulky.)\nlockpick (Cost: 3s)\n",
+            starter.content,
+        )
 
 
 if __name__ == "__main__":
