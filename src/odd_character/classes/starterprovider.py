@@ -14,10 +14,12 @@ class StarterProvider:
         item = self.starter_dict[hp][max(high, 9)]
         description = "\n"
 
-        for content in item["content"]:
-            description += f"{self.get_content_description(content)}\n"
+        content_list = item.get("content")
+        if content_list:
+            for content in content_list:
+                description += f"{self.get_content_description(content)}\n"
 
-        arcana = item.get("arcana")
+        arcana = item.get("arcana") == 1
         return Starter(description, arcana, item.get("pet"), item.get("hire"))
 
     def get_content_description(self, content):
