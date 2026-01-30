@@ -16,11 +16,16 @@ class StarterProvider:
 
         content_list = item.get("content")
         if content_list:
-            for content in content_list:
-                description += f"{self.get_content_description(content)}\n"
+            description += self.get_description_from_content_list(content_list)
 
         arcana = item.get("arcana") == 1
         return Starter(description, arcana, item.get("pet"), item.get("hire"))
+
+    def get_description_from_content_list(self, content_list):
+        description = ""
+        for content in content_list:
+            description += f"{self.get_content_description(content)}\n"
+        return description
 
     def get_content_description(self, content):
         name = content["name"]
