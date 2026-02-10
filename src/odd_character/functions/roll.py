@@ -9,7 +9,7 @@ def roll(dimensions):
 
 def roll_multiple(number, dimensions):
     if number < 1:
-        raise ValueError(f"Wrong number: {dimensions}")
+        raise ValueError(f"Wrong number: {number}")
     return sum(roll(dimensions) for _ in range(number))
 
 
